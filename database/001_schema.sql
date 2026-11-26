@@ -29,7 +29,7 @@ CREATE TABLE cuba (
   codigo varchar(40) NOT NULL UNIQUE,
   zona_buffet varchar(100),
   capacidade_g integer NOT NULL CHECK (capacidade_g > 0),
-  tipo_instalacao varchar(20) NOT NULL CHECK (tipo_instalacao IN ('travessa_solта', 'embutida')),
+  tipo_instalacao varchar(20) NOT NULL CHECK (tipo_instalacao IN ('travessa_solta', 'embutida')),
   ativa boolean NOT NULL DEFAULT true,
   fator_calibracao numeric(14,6),
   calibrada_em timestamptz,
