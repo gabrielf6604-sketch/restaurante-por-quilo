@@ -50,6 +50,22 @@ O ESP32 envia eventos de pesagem para a base de dados. A comanda QR registra os 
 - `docs/evidencias/`: orientação para as capturas de tela.
 - `docs/apresentacao.html`: apresentação navegável com até cinco slides.
 
+
+### Acesso local para demonstração em rede Wi-Fi
+
+O protótipo pode ser aberto em outros dispositivos conectados à mesma rede local:
+
+1. Instale o Node.js LTS no computador que vai hospedar a demonstração.
+2. Abra um terminal na pasta `apps/web` e execute `npm install`.
+3. Execute `npm run dev -- --hostname 0.0.0.0`.
+4. Descubra o IPv4 do computador com `ipconfig` (Windows) ou `ip addr` (Linux).
+5. Nos celulares e demais computadores conectados ao mesmo Wi-Fi, acesse `http://IP-DO-COMPUTADOR:3000`.
+6. Se o Firewall do Windows perguntar, permita o Node.js na rede privada.
+
+Exemplo: se o IPv4 do computador for `192.168.0.25`, os demais dispositivos acessam `http://192.168.0.25:3000`.
+
+**Limites do protótipo:** os dados ficam na memória do navegador/servidor de desenvolvimento e podem voltar ao estado inicial quando a página ou o servidor reiniciar. Não há login, persistência, integração com o restaurante, QR Code real ou leitura de balança. Use somente dados fictícios.
+
 ### Banco de dados
 
 O modelo relacional possui 13 tabelas: `ingrediente`, `cuba`, `leitura_peso`, `evento_cuba`, `funcionario`, `zona`, `mesa`, `atendimento_mesa`, `limpeza`, `comanda`, `item_cardapio`, `pedido_bebida` e `historico_pedido`.
@@ -95,7 +111,7 @@ npm install
 npm run dev
 ```
 
-Abra http://localhost:3000. O painel inicial usa **dados fictícios** e demonstra a direção visual. Ainda não está conectado ao banco nem recebe pedidos reais.
+Abra http://localhost:3000. O protótipo permite navegar entre visão geral, mesas, pedidos, buffet e equipe; criar pedidos de exemplo; avançar o status dos pedidos; e alterar a situação das mesas. Tudo usa dados fictícios, sem conexão com o restaurante.
 
 ### Banco de dados
 
